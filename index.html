@@ -27,13 +27,13 @@ main{height:calc(100vh - 58px);min-height:500px}
 .game:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#08090a10 0%,#08090a08 33%,#08090a70 65%,#08090af2 100%);transition:background .3s}
 .game:hover:before{transform:scale(1.06);filter:saturate(1.15)}
 .game:hover:after{background:linear-gradient(180deg,#08090a00 0%,#08090a05 25%,#08090a75 61%,#08090af5 100%)}
-.passport:before{background-image:url("https://raw.githubusercontent.com/hannes423-debug/pawn-and-passport/main/title-background-wide.png");background-position:center;background-size:cover}
-.aurora:before{background:radial-gradient(ellipse at 52% 35%,#75a9c7 0%,#315c78 26%,#182b42 54%,#0b101a 100%)}
+.passport:before{background-image:url("./images/PawnNPassCover.png");background-position:center;background-size:cover}
+.aurora:before{background-image:url("./images/AuroraCover.png");background-position:center;background-size:cover}
 .aurora-art{position:absolute;inset:0;z-index:-1;overflow:hidden}
 .board{position:absolute;width:min(64vw,440px);height:min(64vw,440px);left:50%;top:43%;transform:translate(-50%,-50%) rotate(-13deg) skewY(4deg);display:grid;grid-template-columns:repeat(4,1fr);border:7px solid #c5edff82;box-shadow:0 24px 90px #0008}
 .board i{background:#a8d6ed}.board i:nth-child(8n+2),.board i:nth-child(8n+4),.board i:nth-child(8n+5),.board i:nth-child(8n+7){background:#294f6c}
 .knight{position:absolute;left:50%;top:40%;transform:translate(-20%,-50%);font-size:clamp(110px,20vw,250px);line-height:1;color:#f3f7ff;text-shadow:0 10px 40px #0009}
-.raid:before{background:radial-gradient(ellipse at 48% 30%,#b65e47 0%,#743d42 32%,#352532 64%,#10121b 100%)}
+.raid:before{background-image:url("./images/RaidFlagCover.png");background-position:center;background-size:cover}
 .battlefield{position:absolute;inset:0;z-index:-1;overflow:hidden;background:repeating-linear-gradient(45deg,transparent 0 45px,#ffffff05 46px 47px)}
 .battlefield:before{content:"";position:absolute;width:75%;height:55%;left:12%;top:22%;transform:rotate(-11deg);background:linear-gradient(135deg,#f0d7ac,#b65a43 48%,#552b38);clip-path:polygon(0 0,100% 7%,87% 100%,0 83%);filter:drop-shadow(0 22px 25px #0009)}
 .battlefield:after{content:"✦";position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);display:grid;place-items:center;width:120px;height:120px;border:1px solid #ffe4c4bb;border-radius:50%;font-size:58px;color:#ffe4c4;text-shadow:0 4px 20px #0008}
@@ -85,12 +85,10 @@ body.portfolio-mode .portfolio{display:block}
       <div class="game-info"><h2>Pawn &amp;<br>Passport</h2><span class="play">PLAY GAME <span>↗</span></span><span class="hint">Click anywhere on this panel to play</span></div>
     </a>
     <a class="game aurora" href="https://hannes423-debug.github.io/aurora-chess/" aria-label="Play Aurora Chess">
-      <div class="aurora-art" aria-hidden="true"><div class="board"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="knight">♞</div></div>
       <div class="game-top"><span class="index">02 / 03</span><span class="pill">Four-layer chess</span></div>
       <div class="game-info"><h2>Aurora<br>Chess</h2><span class="play">PLAY GAME <span>↗</span></span><span class="hint">Click anywhere on this panel to play</span></div>
     </a>
     <a class="game raid" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener" aria-label="Play Raid Flag on itch.io">
-      <div class="battlefield" aria-hidden="true"></div>
       <div class="game-top"><span class="index">03 / 03</span><span class="pill">Tactical strategy</span></div>
       <div class="game-info"><h2>Raid<br>Flag</h2><span class="play">PLAY GAME <span>↗</span></span><span class="hint">Click anywhere on this panel to play</span></div>
     </a>
@@ -99,9 +97,9 @@ body.portfolio-mode .portfolio{display:block}
     <div style="font-size:11px;letter-spacing:.16em;color:var(--lime);font-weight:850">INDEPENDENT GAME PROJECTS</div>
     <h1>Pick a game.<br><span>Jump right in.</span></h1>
     <div class="portfolio-grid">
-      <article class="portfolio-item"><div class="portfolio-thumb"><img src="https://raw.githubusercontent.com/hannes423-debug/pawn-and-passport/main/title-background-wide.png" alt=""></div><div><h2>Pawn &amp; Passport</h2><p>Single-player chess career RPG · Bezi Mega Jam winner</p></div><a class="play" href="https://hannes423-debug.github.io/pawn-and-passport/">PLAY ↗</a></article>
-      <article class="portfolio-item"><div class="portfolio-thumb aurora-thumb"></div><div><h2>Aurora Chess</h2><p>A chess variant played across four layers</p></div><a class="play" href="https://hannes423-debug.github.io/aurora-chess/">PLAY ↗</a></article>
-      <article class="portfolio-item"><div class="portfolio-thumb raid-thumb"></div><div><h2>Raid Flag</h2><p>Tactical chess-inspired strategy · Coding Cabana winner</p></div><a class="play" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener">PLAY ↗</a></article>
+      <article class="portfolio-item"><div class="portfolio-thumb"><img src="./images/PawnNPassCover.png" alt="Pawn &amp; Passport cover"></div><div><h2>Pawn &amp; Passport</h2><p>Single-player chess career RPG · Bezi Mega Jam winner</p></div><a class="play" href="https://hannes423-debug.github.io/pawn-and-passport/">PLAY ↗</a></article>
+      <article class="portfolio-item"><div class="portfolio-thumb"><img src="./images/AuroraCover.png" alt="Aurora Chess cover"></div><div><h2>Aurora Chess</h2><p>A chess variant played across four layers</p></div><a class="play" href="https://hannes423-debug.github.io/aurora-chess/">PLAY ↗</a></article>
+      <article class="portfolio-item"><div class="portfolio-thumb"><img src="./images/RaidFlagCover.png" alt="Raid Flag cover"></div><div><h2>Raid Flag</h2><p>Tactical chess-inspired strategy · Coding Cabana winner</p></div><a class="play" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener">PLAY ↗</a></article>
     </div>
     <div class="portfolio-foot">More projects and source code: <a href="https://github.com/hannes423-debug" target="_blank" rel="noopener">github.com/hannes423-debug ↗</a></div>
   </section>
