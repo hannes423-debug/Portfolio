@@ -44,8 +44,8 @@ main{height:calc(100vh - 58px);min-height:500px}
 
 .game-top{position:absolute;top:22px;left:22px;right:22px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 
-/* Static winner ribbon over the Pawn & Passport artwork */
-.demo-winner-banner{position:absolute;top:66px;left:22px;z-index:3;display:block;width:min(38%,160px);line-height:0;pointer-events:none}
+/* Desktop winner ribbon: compact and layered over the game artwork */
+.demo-winner-banner{position:absolute;top:66px;left:22px;z-index:3;display:block;width:min(34%,135px);line-height:0;pointer-events:none}
 .demo-winner-banner img{display:block;width:100%;height:auto}
 
 .index{font-size:11px;letter-spacing:.14em;font-weight:800;color:#ffffffb8}
@@ -75,7 +75,7 @@ body.portfolio-mode .portfolio{display:block}
 .portfolio-item p{margin:0;color:var(--muted);font-size:13px}
 .portfolio-item .play{min-width:125px}
 
-/* Clickable winner ribbon in the About view */
+/* About ribbon links to Bezi */
 .portfolio-winner-banner{display:block;width:min(100%,160px);height:auto;margin-top:12px;line-height:0}
 .portfolio-winner-banner img{display:block;width:100%;height:auto}
 
@@ -88,7 +88,10 @@ main{height:auto;min-height:calc(100vh - 58px)}
 .game-info{padding:25px}
 .game h2{font-size:38px}
 .game-top{top:15px;left:16px;right:16px}
-.demo-winner-banner{top:52px;left:16px;width:min(38%,130px)}
+
+/* Move the ribbon away from the title and play button on mobile */
+.demo-winner-banner{top:auto;left:auto;right:14px;bottom:18px;width:95px}
+
 .board{width:240px;height:240px}
 .knight{font-size:150px}
 .portfolio-item{grid-template-columns:100px 1fr;gap:14px}
@@ -238,4 +241,4 @@ if (new URLSearchParams(location.search).has('about')) {
   setMode('about');
 }
 </script></body>
-</html>
+  </html>
