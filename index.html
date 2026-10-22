@@ -14,31 +14,40 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{min-height:100vh}
 button,a{-webkit-tap-highlight-color:transparent}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
-.topbar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid #ffffff17;background:#0c0d10}
+:focus-visible{outline:3px solid var(--lime);outline-offset:4px}.topbar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid #ffffff17;background:#0c0d10}
 .brand{font-size:12px;letter-spacing:.16em;font-weight:850;text-decoration:none;color:#f4f4f6}
 .controls{display:flex;gap:8px;align-items:center}
 .toggle,.full{appearance:none;border:1px solid #ffffff2c;background:#181a20;color:#e9eaf0;border-radius:8px;padding:9px 12px;font-size:12px;font-weight:750;cursor:pointer}
 .toggle[aria-pressed="true"]{background:var(--lime);color:#111;border-color:var(--lime)}
 .full{font-size:17px;line-height:1;padding:7px 10px}
+
 main{height:calc(100vh - 58px);min-height:500px}
 .expo{height:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px}
+
 .game{position:relative;min-width:0;overflow:hidden;isolation:isolate;background:#181a20;text-decoration:none;display:flex;align-items:flex-end}
 .game:before{content:"";position:absolute;inset:0;z-index:-2;transition:transform .65s cubic-bezier(.2,.75,.2,1),filter .35s;transform:scale(1.01)}
 .game:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#08090a10 0%,#08090a08 33%,#08090a70 65%,#08090af2 100%);transition:background .3s}
 .game:hover:before{transform:scale(1.06);filter:saturate(1.15)}
 .game:hover:after{background:linear-gradient(180deg,#08090a00 0%,#08090a05 25%,#08090a75 61%,#08090af5 100%)}
+
 .passport:before{background-image:url("./images/PawnNPassCover.png");background-position:center;background-size:cover}
 .aurora:before{background-image:url("./images/AuroraCover.png");background-position:center;background-size:cover}
 .aurora-art{position:absolute;inset:0;z-index:-1;overflow:hidden}
 .board{position:absolute;width:min(64vw,440px);height:min(64vw,440px);left:50%;top:43%;transform:translate(-50%,-50%) rotate(-13deg) skewY(4deg);display:grid;grid-template-columns:repeat(4,1fr);border:7px solid #c5edff82;box-shadow:0 24px 90px #0008}
-.board i{background:#a8d6ed}.board i:nth-child(8n+2),.board i:nth-child(8n+4),.board i:nth-child(8n+5),.board i:nth-child(8n+7){background:#294f6c}
+.board i{background:#a8d6ed}
+.board i:nth-child(8n+2),.board i:nth-child(8n+4),.board i:nth-child(8n+5),.board i:nth-child(8n+7){background:#294f6c}
 .knight{position:absolute;left:50%;top:40%;transform:translate(-20%,-50%);font-size:clamp(110px,20vw,250px);line-height:1;color:#f3f7ff;text-shadow:0 10px 40px #0009}
 .raid:before{background-image:url("./images/RaidFlagCover.png");background-position:center;background-size:cover}
 .battlefield{position:absolute;inset:0;z-index:-1;overflow:hidden;background:repeating-linear-gradient(45deg,transparent 0 45px,#ffffff05 46px 47px)}
 .battlefield:before{content:"";position:absolute;width:75%;height:55%;left:12%;top:22%;transform:rotate(-11deg);background:linear-gradient(135deg,#f0d7ac,#b65a43 48%,#552b38);clip-path:polygon(0 0,100% 7%,87% 100%,0 83%);filter:drop-shadow(0 22px 25px #0009)}
 .battlefield:after{content:"✦";position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);display:grid;place-items:center;width:120px;height:120px;border:1px solid #ffe4c4bb;border-radius:50%;font-size:58px;color:#ffe4c4;text-shadow:0 4px 20px #0008}
+
 .game-top{position:absolute;top:22px;left:22px;right:22px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+
+/* Static winner ribbon over the Pawn & Passport artwork */
+.demo-winner-banner{position:absolute;top:66px;left:22px;z-index:3;display:block;width:min(38%,160px);line-height:0;pointer-events:none}
+.demo-winner-banner img{display:block;width:100%;height:auto}
+
 .index{font-size:11px;letter-spacing:.14em;font-weight:800;color:#ffffffb8}
 .pill{border:1px solid #ffffff62;background:#090a0d55;backdrop-filter:blur(10px);border-radius:30px;padding:7px 10px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
 .game-info{width:100%;padding:30px clamp(18px,3vw,42px) clamp(28px,5vh,54px);transform:translateY(5px);transition:transform .25s}
@@ -47,6 +56,7 @@ main{height:calc(100vh - 58px);min-height:500px}
 .play{display:inline-flex;align-items:center;justify-content:center;gap:13px;background:var(--lime);color:#111;border-radius:8px;padding:14px 18px;font-size:13px;font-weight:900;letter-spacing:.01em;min-width:155px}
 .play span{font-size:18px;line-height:10px}
 .hint{display:block;margin-top:13px;color:#ffffffa8;font-size:11px}
+
 .portfolio{display:none;height:100%;overflow:auto;padding:clamp(22px,5vw,65px);max-width:1000px;margin:auto}
 body.portfolio-mode main{height:auto;min-height:calc(100vh - 58px)}
 body.portfolio-mode .expo{display:none}
@@ -64,11 +74,45 @@ body.portfolio-mode .portfolio{display:block}
 .portfolio-item h2{font-size:23px;margin:0 0 5px;letter-spacing:-.04em}
 .portfolio-item p{margin:0;color:var(--muted);font-size:13px}
 .portfolio-item .play{min-width:125px}
+
+/* Clickable winner ribbon in the About view */
+.portfolio-winner-banner{display:block;width:min(100%,160px);height:auto;margin-top:12px;line-height:0}
+.portfolio-winner-banner img{display:block;width:100%;height:auto}
+
 .portfolio-foot{color:#8f929d;font-size:12px;margin-top:32px}
-@media(max-width:700px){main{height:auto;min-height:calc(100vh - 58px)}.expo{grid-template-columns:1fr;grid-template-rows:repeat(3,minmax(240px,33vh));height:auto}.game{min-height:240px}.game-info{padding:25px}.game h2{font-size:38px}.game-top{top:15px;left:16px;right:16px}.board{width:240px;height:240px}.knight{font-size:150px}.portfolio-item{grid-template-columns:100px 1fr;gap:14px}.portfolio-thumb{height:85px}.portfolio-item .play{grid-column:2;justify-self:start}.portfolio-item h2{font-size:19px}.portfolio-item p{font-size:12px}.topbar{padding:0 12px}.brand{font-size:10px}.toggle{padding:8px 9px}}
-@media(min-width:701px) and (max-height:620px){.game-info{padding-bottom:22px}.game h2{font-size:clamp(25px,3vw,38px)}.play{padding:11px 14px}.hint{display:none}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+
+@media(max-width:700px){
+main{height:auto;min-height:calc(100vh - 58px)}
+.expo{grid-template-columns:1fr;grid-template-rows:repeat(3,minmax(240px,33vh));height:auto}
+.game{min-height:240px}
+.game-info{padding:25px}
+.game h2{font-size:38px}
+.game-top{top:15px;left:16px;right:16px}
+.demo-winner-banner{top:52px;left:16px;width:min(38%,130px)}
+.board{width:240px;height:240px}
+.knight{font-size:150px}
+.portfolio-item{grid-template-columns:100px 1fr;gap:14px}
+.portfolio-thumb{height:85px}
+.portfolio-item .play{grid-column:2;justify-self:start}
+.portfolio-item h2{font-size:19px}
+.portfolio-item p{font-size:12px}
+.topbar{padding:0 12px}
+.brand{font-size:10px}
+.toggle{padding:8px 9px}
+}
+
+@media(min-width:701px) and (max-height:620px){
+.game-info{padding-bottom:22px}
+.game h2{font-size:clamp(25px,3vw,38px)}
+.play{padding:11px 14px}
+.hint{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+,:before,*:after{transition:none!important}
+}
 </style>
+
 </head>
 <body>
 <header class="topbar">
@@ -78,39 +122,120 @@ body.portfolio-mode .portfolio{display:block}
     <button class="toggle" id="portfolioToggle" type="button" aria-pressed="false">ABOUT</button>
     <button class="full" id="fullscreen" type="button" aria-label="Toggle fullscreen" title="Toggle fullscreen">⛶</button>
   </div>
-</header>
-<main>
+</header><main>
   <section class="expo" aria-label="Choose a game">
     <a class="game passport" href="https://hannes423-debug.github.io/pawn-and-passport/" aria-label="Play Pawn and Passport">
-      <div class="game-top"><span class="index">01 / 03</span><span class="pill">Chess career RPG</span></div>
-      <div class="game-info"><h2>Pawn &amp;<br>Passport</h2><span class="play">PLAY GAME <span>↗</span></span><span class="hint">Click anywhere on this panel to play</span></div>
-    </a>
-    <a class="game aurora" href="https://hannes423-debug.github.io/aurora-chess/" aria-label="Play Aurora Chess">
-      <div class="game-top"><span class="index">02 / 03</span><span class="pill">Four-layer chess</span></div>
-      <div class="game-info"><h2>Aurora<br>Chess</h2><span class="play">PLAY GAME <span>↗</span></span><span class="hint">Click anywhere on this panel to play</span></div>
-    </a>
-    <a class="game raid" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener" aria-label="Play Raid Flag on itch.io">
-      <div class="game-top"><span class="index">03 / 03</span><span class="pill">Tactical strategy</span></div>
-      <div class="game-info"><h2>Raid<br>Flag</h2><span class="play">PLAY GAME <span>↗</span></span><span class="hint">Click anywhere on this panel to play</span></div>
-    </a>
-  </section>
-  <section class="portfolio" aria-label="Project details">
+      <div class="game-top">
+        <span class="index">01 / 03</span>
+        <span class="pill">Chess career RPG</span>
+      </div>  <div class="demo-winner-banner" aria-label="Bezi Mega Jam — Metaplay Track Winner">
+    <img src="./images/file_0000000033e4820a8a5663cee3dc543a.png" alt="Bezi Mega Jam — Metaplay Track Winner">
+  </div>
+
+  <div class="game-info">
+    <h2>Pawn &amp;<br>Passport</h2>
+    <span class="play">PLAY GAME <span>↗</span></span>
+    <span class="hint">Click anywhere on this panel to play</span>
+  </div>
+</a>
+
+<a class="game aurora" href="https://hannes423-debug.github.io/aurora-chess/" aria-label="Play Aurora Chess">
+  <div class="game-top">
+    <span class="index">02 / 03</span>
+    <span class="pill">Four-layer chess</span>
+  </div>
+  <div class="game-info">
+    <h2>Aurora<br>Chess</h2>
+    <span class="play">PLAY GAME <span>↗</span></span>
+    <span class="hint">Click anywhere on this panel to play</span>
+  </div>
+</a>
+
+<a class="game raid" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener" aria-label="Play Raid Flag on itch.io">
+  <div class="game-top">
+    <span class="index">03 / 03</span>
+    <span class="pill">Tactical strategy</span>
+  </div>
+  <div class="game-info">
+    <h2>Raid<br>Flag</h2>
+    <span class="play">PLAY GAME <span>↗</span></span>
+    <span class="hint">Click anywhere on this panel to play</span>
+  </div>
+</a>
+
+  </section>  <section class="portfolio" aria-label="Project details">
     <div style="font-size:11px;letter-spacing:.16em;color:var(--lime);font-weight:850">INDEPENDENT GAME PROJECTS</div>
-    <h1>Pick a game.<br><span>Jump right in.</span></h1>
-    <div class="portfolio-grid">
-      <article class="portfolio-item"><div class="portfolio-thumb"><img src="./images/PawnNPassCover.png" alt="Pawn &amp; Passport cover"></div><div><h2>Pawn &amp; Passport</h2><p>Single-player chess career RPG · Bezi Mega Jam winner</p><a href="https://www.bezi.com/" target="_blank" rel="noopener" aria-label="Learn more about Bezi"><img src="./images/file_0000000033e4820a8a5663cee3dc543a.png" alt="Bezi Mega Jam — Metaplay Track Winner" style="display:block;width:min(100%,220px);height:auto;margin-top:14px;"></a></div><a class="play" href="https://hannes423-debug.github.io/pawn-and-passport/">PLAY ↗</a></article>
-      <article class="portfolio-item"><div class="portfolio-thumb"><img src="./images/AuroraCover.png" alt="Aurora Chess cover"></div><div><h2>Aurora Chess</h2><p>A chess variant played across four layers</p></div><a class="play" href="https://hannes423-debug.github.io/aurora-chess/">PLAY ↗</a></article>
-      <article class="portfolio-item"><div class="portfolio-thumb"><img src="./images/RaidFlagCover.png" alt="Raid Flag cover"></div><div><h2>Raid Flag</h2><p>Tactical chess-inspired strategy · Coding Cabana winner</p></div><a class="play" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener">PLAY ↗</a></article>
+    <h1>Pick a game.<br><span>Jump right in.</span></h1><div class="portfolio-grid">
+  <article class="portfolio-item">
+    <div class="portfolio-thumb">
+      <img src="./images/PawnNPassCover.png" alt="Pawn &amp; Passport cover">
     </div>
-    <div class="portfolio-foot">More projects and source code: <a href="https://github.com/hannes423-debug" target="_blank" rel="noopener">github.com/hannes423-debug ↗</a></div>
+    <div>
+      <h2>Pawn &amp; Passport</h2>
+      <p>Single-player chess career RPG · Bezi Mega Jam winner</p>
+      <a class="portfolio-winner-banner" href="https://www.bezi.com/" target="_blank" rel="noopener" aria-label="Learn more about Bezi">
+        <img src="./images/file_0000000033e4820a8a5663cee3dc543a.png" alt="Bezi Mega Jam — Metaplay Track Winner">
+      </a>
+    </div>
+    <a class="play" href="https://hannes423-debug.github.io/pawn-and-passport/">PLAY ↗</a>
+  </article>
+
+  <article class="portfolio-item">
+    <div class="portfolio-thumb">
+      <img src="./images/AuroraCover.png" alt="Aurora Chess cover">
+    </div>
+    <div>
+      <h2>Aurora Chess</h2>
+      <p>A chess variant played across four layers</p>
+    </div>
+    <a class="play" href="https://hannes423-debug.github.io/aurora-chess/">PLAY ↗</a>
+  </article>
+
+  <article class="portfolio-item">
+    <div class="portfolio-thumb">
+      <img src="./images/RaidFlagCover.png" alt="Raid Flag cover">
+    </div>
+    <div>
+      <h2>Raid Flag</h2>
+      <p>Tactical chess-inspired strategy · Coding Cabana winner</p>
+    </div>
+    <a class="play" href="https://hasa92.itch.io/raid-flag" target="_blank" rel="noopener">PLAY ↗</a>
+  </article>
+</div>
+
+<div class="portfolio-foot">
+  More projects and source code:
+  <a href="https://github.com/hannes423-debug" target="_blank" rel="noopener">github.com/hannes423-debug ↗</a>
+</div>
+
   </section>
-</main>
-<script>
-const body=document.body,expoToggle=document.getElementById('expoToggle'),portfolioToggle=document.getElementById('portfolioToggle');
-function setMode(mode){const about=mode==='about';body.classList.toggle('portfolio-mode',about);expoToggle.setAttribute('aria-pressed',String(!about));portfolioToggle.setAttribute('aria-pressed',String(about));}
-expoToggle.addEventListener('click',()=>setMode('expo'));portfolioToggle.addEventListener('click',()=>setMode('about'));
-document.getElementById('fullscreen').addEventListener('click',async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(e){}});
-if(new URLSearchParams(location.search).has('about'))setMode('about');
-</script>
-</body>
+</main><script>
+const body = document.body;
+const expoToggle = document.getElementById('expoToggle');
+const portfolioToggle = document.getElementById('portfolioToggle');
+
+function setMode(mode) {
+  const about = mode === 'about';
+  body.classList.toggle('portfolio-mode', about);
+  expoToggle.setAttribute('aria-pressed', String(!about));
+  portfolioToggle.setAttribute('aria-pressed', String(about));
+}
+
+expoToggle.addEventListener('click', () => setMode('expo'));
+portfolioToggle.addEventListener('click', () => setMode('about'));
+
+document.getElementById('fullscreen').addEventListener('click', async () => {
+  try {
+    if (!document.fullscreenElement) {
+      await document.documentElement.requestFullscreen();
+    } else {
+      await document.exitFullscreen();
+    }
+  } catch (e) {}
+});
+
+if (new URLSearchParams(location.search).has('about')) {
+  setMode('about');
+}
+</script></body>
 </html>
